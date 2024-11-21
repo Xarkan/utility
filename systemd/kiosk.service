@@ -1,0 +1,15 @@
+[Unit]
+Description=Kiosk service
+After=network.target
+StartLimitIntervalSec=1
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=<my_user>
+Environment="DISPLAY=:1"
+ExecStart=/snap/bin/chromium -kiosk file:///home/emmeatech/Documents/PLC/templates/loading.html
+
+[Install]
+WantedBy=multi-user.target
